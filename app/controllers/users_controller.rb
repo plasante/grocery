@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     if User.count < 51
       @user = User.new(user_params)
       if @user.save
+        sign_in @user
         flash[:success] = "Welcome to the iGrocery App!"
         redirect_to @user
       else

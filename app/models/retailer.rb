@@ -1,4 +1,6 @@
 class Retailer < ActiveRecord::Base
+  has_many :retailers_products
+  has_many :retailers, through: :retailers_products
   
   validates :name,  presence: true, length: { maximum: 100 }
   

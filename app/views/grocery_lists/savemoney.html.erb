@@ -2,8 +2,8 @@
 <h1>Save Money</h1>
 <p>
 	Best store is: <%= @best_store %><br/>
-	Best price is: $<%= @best_price %><hr />
+	Best price is: $<%= @best_price %><hr/>
 	<% @best_price_list.each do |item| %>
-		<%= item.retailer_id%>, <%= item.product_id %>, <%= item.price %><br/>
+		<%= item.retailer.name %>, <%= item.product.description %>, $ <%= item.price %><br/>
 	<% end %>
 </p>

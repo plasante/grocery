@@ -40,6 +40,7 @@ class GroceryListsController < ApplicationController
                            .group('retailer_id')
                            .order('total ASC')
                            .limit(1)
+      
       @best_price = rp.first.total.to_s
       @best_store = Retailer.find_by(id: rp.first.store).name
       @best_price_list = RetailersProduct.select('retailer_id, product_id, price')

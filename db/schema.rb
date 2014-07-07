@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140706134349) do
+ActiveRecord::Schema.define(version: 20140707132136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,22 @@ ActiveRecord::Schema.define(version: 20140706134349) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "grocery_list_items", force: true do |t|
+    t.integer  "grocery_list_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "grocery_list_items", ["grocery_list_id"], name: "index_grocery_list_items_on_grocery_list_id", using: :btree
+  add_index "grocery_list_items", ["product_id"], name: "index_grocery_list_items_on_product_id", using: :btree
+
+  create_table "grocery_lists", force: true do |t|
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

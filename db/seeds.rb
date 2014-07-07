@@ -6,6 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.delete_all
+user1 = User.create(name: 'Default User', email: 'default_user@email.com', password: '123456', password_confirmation: '123456')
+user2 = User.create(name: 'Pierre Lasante', email: 'plasante@email.com', password: '123456', password_confirmation: '123456')
 Retailer.delete_all
 maxi   = Retailer.create(name: 'Maxi')
 iga    = Retailer.create(name: 'IGA')
@@ -95,3 +98,16 @@ soda_product.retailers_products.build(retailer:  superc,  price: 6.79).save
 bread_product.retailers_products.build(retailer: tiger,  price: 4.49).save
 milk_product.retailers_products.build(retailer:  tiger,  price: 5.39).save
 soda_product.retailers_products.build(retailer:  tiger,  price: 6.69).save
+
+GroceryList.delete_all
+grocery_list1 = GroceryList.create(user_id: user1.id)
+grocery_list2 = GroceryList.create(user_id: user2.id)
+
+GroceryListItem.delete_all
+GroceryListItem.create(grocery_list_id: grocery_list1.id, product_id: bread_product.id)
+GroceryListItem.create(grocery_list_id: grocery_list1.id, product_id: milk_product.id)
+GroceryListItem.create(grocery_list_id: grocery_list1.id, product_id: soda_product.id)
+
+GroceryListItem.create(grocery_list_id: grocery_list2.id, product_id: bread_product.id)
+GroceryListItem.create(grocery_list_id: grocery_list2.id, product_id: milk_product.id)
+GroceryListItem.create(grocery_list_id: grocery_list2.id, product_id: soda_product.id)

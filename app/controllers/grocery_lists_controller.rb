@@ -39,11 +39,19 @@ class GroceryListsController < ApplicationController
                            .where("product_id in (#{product_csv})")
                            .group('retailer_id')
                            .order('total ASC')
-                           .limit(1)
+                           .limit(3)
       
-      @best_price = rp.first.total.to_s
-      @best_store = Retailer.find_by(id: rp.first.store).name
-      @best_price_list = RetailersProduct.select('retailer_id, product_id, price')
-                                         .where("product_id IN (#{product_csv}) AND retailer_id = #{rp.first.store}")             
+      @best_price_1 = rp.first.total.to_s
+      @best_store_1 = Retailer.find_by(id: rp.first.store).name
+      @best_price_list_1 = RetailersProduct.select('retailer_id, product_id, price')
+                                           .where("product_id IN (#{product_csv}) AND retailer_id = #{rp.first.store}")
+      @best_price_2 = rp.second.total.to_s
+      @best_store_2 = Retailer.find_by(id: rp.second.store).name
+      @best_price_list_2 = RetailersProduct.select('retailer_id, product_id, price')
+                                           .where("product_id IN (#{product_csv}) AND retailer_id = #{rp.second.store}")
+      @best_price_3 = rp.third.total.to_s
+      @best_store_3 = Retailer.find_by(id: rp.third.store).name
+      @best_price_list_3 = RetailersProduct.select('retailer_id, product_id, price')
+                                           .where("product_id IN (#{product_csv}) AND retailer_id = #{rp.third.store}")
     end
 end

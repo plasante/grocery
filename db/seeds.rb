@@ -91,13 +91,13 @@ bread_product.retailers_products.build(retailer: metro,  price: 4.69).save
 milk_product.retailers_products.build(retailer:  metro,  price: 5.59).save
 soda_product.retailers_products.build(retailer:  metro,  price: 6.79).save
 
-bread_product.retailers_products.build(retailer: superc,  price: 4.59).save
-milk_product.retailers_products.build(retailer:  superc,  price: 5.49).save
-soda_product.retailers_products.build(retailer:  superc,  price: 6.79).save
+bread_product.retailers_products.build(retailer: superc,  price: 999999.01).save
+milk_product.retailers_products.build(retailer:  superc,  price: 999999.01).save
+soda_product.retailers_products.build(retailer:  superc,  price: 999999.01).save
 
-bread_product.retailers_products.build(retailer: tiger,  price: 4.49).save
-milk_product.retailers_products.build(retailer:  tiger,  price: 5.39).save
-soda_product.retailers_products.build(retailer:  tiger,  price: 6.69).save
+bread_product.retailers_products.build(retailer: tiger,  price: 999999.01).save
+milk_product.retailers_products.build(retailer:  tiger,  price: 999999.01).save
+soda_product.retailers_products.build(retailer:  tiger,  price: 999999.01).save
 
 GroceryList.delete_all
 grocery_list1 = GroceryList.create(user_id: user1.id)

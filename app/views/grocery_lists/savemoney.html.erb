@@ -5,24 +5,30 @@
 	Best price is: $<%= @best_price_1 %><hr/>
 	<table>
 		<tr>
-			<th></th><% @store_name_list.each do |store_name| %>
-					     <th><%= store_name %></th>
-					 <% end %>
+			<th></th>
+			<% @store_name_list.each do |store_name| %>
+				<th style="width: 100px;"/><%= store_name %></th>
+			<% end %>
 		</tr>
 		<tr>
 			<td><%= @product_name_list[0] %></td>
-			<td style="color: black; background-color:#00ff00;"><%= @best_price_list_1[0].price %>$</td>
-			<td><%= @best_price_list_2[0].price %>$</td>
-			<td><%= @best_price_list_3[0].price %>$</td>
+			<td style="color: black; background-color:#00ff00;" align="right"><%= @best_price_list_1[0].price %>$</td>
+			<td align="right"><%= @best_price_list_2[0].price %>$</td>
+			<td align="right"><%= @best_price_list_3[0].price %>$</td>
 		</tr>
 		<% for i in 1..(@product_name_list.size-1) %>
 			<tr>
 				<td><%= @product_name_list[i] %></td>
-				<td style="color: black; background-color:#00ff00;"><%= @best_price_list_1[i].price %>$</td>
-				<td><%= @best_price_list_2[i].price %>$</td>
-				<td><%= @best_price_list_3[i].price %>$</td>
+				<td style="color: black; background-color:#00ff00;" align="right"><%= @best_price_list_1[i].price %>$</td>
+				<td align="right"><%= @best_price_list_2[i].price %>$</td>
+				<td align="right"><%= @best_price_list_3[i].price %>$</td>
 			</tr>
 		<% end %>
-		<tr><td colspan="2" align="right" ><%= @best_price_1 %>$</td></tr>
+		<tr>
+			<td></td>
+			<td align="right"><%= @best_price_1 %>$</td>
+			<td align="right"><%= @best_price_2 %>$</td>
+			<td align="right"><%= @best_price_3 %>$</td>
+		</tr>
 	</table>
 </p>

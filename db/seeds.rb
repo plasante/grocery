@@ -16,6 +16,15 @@ metro  = Retailer.create(name: 'Metro', no: '875', street: 'Montee Masson', city
 superc = Retailer.create(name: 'SuperC', no: '1395', street: 'boul Moody', city: 'Terrebonne', state: 'Quebec', country: 'Canada', zip: 'J6X 4C8')
 tiger  = Retailer.create(name: 'Tiger', no: '415', street: 'Montee Masson', city: 'Mascouche', state: 'Quebec', country: 'Canada', zip: 'J7K 2L5')
 
+Retailer.all.each do |retailer|
+  location = "#{retailer.no} #{retailer.street} #{retailer.city} #{retailer.state}"
+  sleep(1)
+  s = Geocoder.search( location )
+  retailer.latitude = s[0].latitude
+  retailer.longitude = s[0].longitude
+  retailer.save
+end
+
 Category.delete_all
 Category.create(name: 'baby products')
 Category.create(name: 'bakery')

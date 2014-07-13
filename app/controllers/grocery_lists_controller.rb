@@ -45,21 +45,21 @@ class GroceryListsController < ApplicationController
       @product_name_list = []
       
       @best_price_1 = rp.first.total.to_s
-      @best_store_1 = Retailer.find_by(id: rp.first.store).name
-      @store_name_list << @best_store_1
+      @best_store_1 = Retailer.find_by(id: rp.first.store)
+      @store_name_list << @best_store_1.name
       @product_name_list = Product.select('*').where("id IN (#{product_csv})").pluck('description')
       @best_price_list_1 = RetailersProduct.select('retailer_id, product_id, price')
                                            .where("product_id IN (#{product_csv}) AND retailer_id = #{rp.first.store}")
       
       @best_price_2 = rp.second.total.to_s
-      @best_store_2 = Retailer.find_by(id: rp.second.store).name
-      @store_name_list << @best_store_2
+      @best_store_2 = Retailer.find_by(id: rp.second.store)
+      @store_name_list << @best_store_2.name
       @best_price_list_2 = RetailersProduct.select('retailer_id, product_id, price')
                                            .where("product_id IN (#{product_csv}) AND retailer_id = #{rp.second.store}")
       
       @best_price_3 = rp.third.total.to_s
-      @best_store_3 = Retailer.find_by(id: rp.third.store).name
-      @store_name_list << @best_store_3
+      @best_store_3 = Retailer.find_by(id: rp.third.store)
+      @store_name_list << @best_store_3.name
       @best_price_list_3 = RetailersProduct.select('retailer_id, product_id, price')
                                            .where("product_id IN (#{product_csv}) AND retailer_id = #{rp.third.store}")
                                            

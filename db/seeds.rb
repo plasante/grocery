@@ -10,11 +10,11 @@ User.delete_all
 user1 = User.create(name: 'Default User', email: 'default_user@email.com', password: '123456', password_confirmation: '123456')
 user2 = User.create(name: 'Pierre Lasante', email: 'plasante@email.com', password: '123456', password_confirmation: '123456')
 Retailer.delete_all
-maxi   = Retailer.create(name: 'Maxi')
-iga    = Retailer.create(name: 'IGA')
-metro  = Retailer.create(name: 'Metro')
-superc = Retailer.create(name: 'SuperC')
-tiger  = Retailer.create(name: 'Tiger')
+maxi   = Retailer.create(name: 'Maxi', no: '1100', street: 'Montee Masson', city: 'Mascouche', state: 'Quebec', country: 'Canada', zip: 'J7K 2L8')
+iga    = Retailer.create(name: 'IGA', no: '65', street: 'Montee Masson', city: 'Mascouche', state: 'Quebec', country: 'Canada', zip: 'J7K 3B4')
+metro  = Retailer.create(name: 'Metro', no: '875', street: 'Montee Masson', city: 'Mascouche', state: 'Quebec', country: 'Canada', zip: 'J7K 3T3')
+superc = Retailer.create(name: 'SuperC', no: '1395', street: 'boul Moody', city: 'Terrebonne', state: 'Quebec', country: 'Canada', zip: 'J6X 4C8')
+tiger  = Retailer.create(name: 'Tiger', no: '415', street: 'Montee Masson', city: 'Mascouche', state: 'Quebec', country: 'Canada', zip: 'J7K 2L5')
 
 Category.delete_all
 Category.create(name: 'baby products')

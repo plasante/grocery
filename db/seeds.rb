@@ -145,5 +145,5 @@ GroceryListItem.create(grocery_list_id: grocery_list1.id, product_id: coffee_pro
 GroceryListItem.create(grocery_list_id: grocery_list2.id, product_id: bread_product.id)
 GroceryListItem.create(grocery_list_id: grocery_list2.id, product_id: milk_product.id)
 GroceryListItem.create(grocery_list_id: grocery_list2.id, product_id: soda_product.id)
-GroceryListItem.create(grocery_list_id: grocery_list1.id, product_id: margarine_product.id)
-GroceryListItem.create(grocery_list_id: grocery_list1.id, product_id: coffee_product.id)
+GroceryListItem.create(grocery_list_id: grocery_list2.id, product_id: margarine_product.id)
+GroceryListItem.create(grocery_list_id: grocery_list2.id, product_id: coffee_product.id)

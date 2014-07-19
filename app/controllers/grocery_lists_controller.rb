@@ -27,13 +27,25 @@ class GroceryListsController < ApplicationController
         user = User.find_by(email: current_user.email)
       end
       
+      if user.similar_allowed
+        process_similar(user)
+      else
+        process_not_similar(user)
+      end
+    end
+  
+    def process_similar(user)
+      
+    end
+  
+    def process_not_similar(user)
       grocery_list = user.grocery_list
       
       product_list = grocery_list.products
       
       # produit un string "64,65,66"
       product_csv = product_list.pluck(:id).join(",")
-
+  
       # Produit un array de 1 element que l'on peut acceder rp.first.total.to_s
       rp = RetailersProduct.select('retailer_id store, sum(price) as total')
                            .where("product_id in (#{product_csv})")
@@ -62,6 +74,5 @@ class GroceryListsController < ApplicationController
       @store_name_list << @best_store_3.name
       @best_price_list_3 = RetailersProduct.select('retailer_id, product_id, price')
                                            .where("product_id IN (#{product_csv}) AND retailer_id = #{rp.third.store}")
-                                           
     end
 end

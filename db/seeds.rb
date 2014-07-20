@@ -70,11 +70,12 @@ category_beverages_soda = SubCategory.find_by(name: 'soda')
 category_beverages_soda.sub_sub_categories.build(name: 'cola').save
 
 Brand.delete_all
-brand_bakery_bread = Brand.create(name:             'weston')
-brand_dairy_products_milk = Brand.create(name:      'lactantia')
-brand_dairy_products_margarine = Brand.create(name: 'fleishman')
-brand_beverages_soda = Brand.create(name:           'pepsi')
-brand_coffee = Brand.create(name:                   'tassimo')
+brand_bakery_bread = Brand.create(name:              'weston')
+brand_dairy_products_milk = Brand.create(name:       'lactantia')
+brand_dairy_products_margarine = Brand.create(name:  'fleishman')
+brand_dairy_products_margarine2 = Brand.create(name: 'becel')
+brand_beverages_soda = Brand.create(name:            'pepsi')
+brand_coffee = Brand.create(name:                    'tassimo')
 
 Product.delete_all
 bread_category     = SubSubCategory.find_by(name: 'sliced')
@@ -92,6 +93,9 @@ milk_product       = Product.create(brand: brand_dairy_products_milk,
 margarine_product  = Product.create(brand: brand_dairy_products_margarine, 
                      categorizable: margarine_category,  
                      description: 'Fleishman margarine 907g')
+margarine_product2 = Product.create(brand: brand_dairy_products_margarine2, 
+                     categorizable: margarine_category,  
+                     description: 'Becel margarine 907g')
 soda_product       = Product.create(brand: brand_beverages_soda,      
                      categorizable: soda_category,  
                      description: 'Pepsi cola 24 x 355ml')
@@ -101,35 +105,36 @@ coffee_product     = Product.create(brand: brand_coffee,
 
 RetailersProduct.delete_all          
 
-bread_product.retailers_products.build(retailer:     maxi,   price: 4.39).save
-milk_product.retailers_products.build(retailer:      maxi,   price: 5.79).save
-soda_product.retailers_products.build(retailer:      maxi,   price: 6.99).save
-margarine_product.retailers_products.build(retailer: maxi,   price: 7.49).save
-coffee_product.retailers_products.build(retailer:    maxi,   price: 9.49).save
+bread_product.retailers_products.build(retailer:      maxi,   price: 4.39).save
+milk_product.retailers_products.build(retailer:       maxi,   price: 5.79).save
+soda_product.retailers_products.build(retailer:       maxi,   price: 6.99).save
+margarine_product.retailers_products.build(retailer:  maxi,   price: 7.49).save
+coffee_product.retailers_products.build(retailer:     maxi,   price: 9.49).save
 
-bread_product.retailers_products.build(retailer:     iga,    price: 4.29).save
-milk_product.retailers_products.build(retailer:      iga,    price: 5.69).save
-soda_product.retailers_products.build(retailer:      iga,    price: 6.89).save
-margarine_product.retailers_products.build(retailer: iga,    price: 7.39).save
-coffee_product.retailers_products.build(retailer:    iga,    price: 9.39).save
+bread_product.retailers_products.build(retailer:      iga,    price: 4.29).save
+milk_product.retailers_products.build(retailer:       iga,    price: 5.69).save
+soda_product.retailers_products.build(retailer:       iga,    price: 6.89).save
+margarine_product.retailers_products.build(retailer:  iga,    price: 7.39).save
+margarine_product2.retailers_products.build(retailer: iga,    price: 3.39).save
+coffee_product.retailers_products.build(retailer:     iga,    price: 9.39).save
 
-bread_product.retailers_products.build(retailer:     metro,  price: 4.19).save
-milk_product.retailers_products.build(retailer:      metro,  price: 5.59).save
-soda_product.retailers_products.build(retailer:      metro,  price: 6.79).save
-margarine_product.retailers_products.build(retailer: metro,  price: 7.29).save
-coffee_product.retailers_products.build(retailer:    metro,  price: 9.29).save
+bread_product.retailers_products.build(retailer:      metro,  price: 4.19).save
+milk_product.retailers_products.build(retailer:       metro,  price: 5.59).save
+soda_product.retailers_products.build(retailer:       metro,  price: 6.79).save
+margarine_product.retailers_products.build(retailer:  metro,  price: 7.29).save
+coffee_product.retailers_products.build(retailer:     metro,  price: 9.29).save
 
-bread_product.retailers_products.build(retailer:     superc, price: 999999.01).save
-milk_product.retailers_products.build(retailer:      superc, price: 999999.01).save
-soda_product.retailers_products.build(retailer:      superc, price: 999999.01).save
-margarine_product.retailers_products.build(retailer: superc, price: 999999.01).save
-coffee_product.retailers_products.build(retailer:    superc, price: 999999.01).save
+bread_product.retailers_products.build(retailer:      superc, price: 999999.01).save
+milk_product.retailers_products.build(retailer:       superc, price: 999999.01).save
+soda_product.retailers_products.build(retailer:       superc, price: 999999.01).save
+margarine_product.retailers_products.build(retailer:  superc, price: 999999.01).save
+coffee_product.retailers_products.build(retailer:     superc, price: 999999.01).save
 
-bread_product.retailers_products.build(retailer:     tiger,  price: 999999.01).save
-milk_product.retailers_products.build(retailer:      tiger,  price: 999999.01).save
-soda_product.retailers_products.build(retailer:      tiger,  price: 999999.01).save
-margarine_product.retailers_products.build(retailer: tiger,  price: 999999.01).save
-coffee_product.retailers_products.build(retailer:    tiger,  price: 999999.01).save
+bread_product.retailers_products.build(retailer:      tiger,  price: 999999.01).save
+milk_product.retailers_products.build(retailer:       tiger,  price: 999999.01).save
+soda_product.retailers_products.build(retailer:       tiger,  price: 999999.01).save
+margarine_product.retailers_products.build(retailer:  tiger,  price: 999999.01).save
+coffee_product.retailers_products.build(retailer:     tiger,  price: 999999.01).save
 
 GroceryList.delete_all
 grocery_list1 = GroceryList.create(user_id: user1.id)

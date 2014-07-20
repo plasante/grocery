@@ -1,0 +1,34 @@
+<% provide(:title, 'Save Money') %>
+<h1>Save Money Similar</h1>
+<p>
+	Best store is: <%= @best_store_1.name %>
+	               ( <%= @best_store_1.no %>,
+	                 <%= @best_store_1.street %>,
+	                 <%= @best_store_1.city %>, 
+	                 <%= @best_store_1.state %>, 
+	                 <%= @best_store_1.country %>, 
+	                 <%= @best_store_1. zip %> )<br/>
+	Best price is: <%= @best_price_1 %>$<hr/>
+	<table>
+		<tr>
+			<th></th>
+			<% @store_name_list.each do |store_name| %>
+				<th style="width: 100px;"/><%= store_name %></th>
+			<% end %>
+		</tr>
+		<tr>
+			<td><%= @product_name_list[0] %></td>
+			<td style="color: black; background-color:#00ff00;" align="right"><%= @best_price_list_1[0].price %>$</td>
+		</tr>
+		<% for i in 1..(@product_name_list.size-1) %>
+			<tr>
+				<td><%= @product_name_list[i] %></td>
+				<td style="color: black; background-color:#00ff00;" align="right"><%= @best_price_list_1[i].price %>$</td>
+			</tr>
+		<% end %>
+		<tr>
+			<td></td>
+			<td align="right"><%= @best_price_1 %>$</td>
+		</tr>
+	</table>
+</p>
